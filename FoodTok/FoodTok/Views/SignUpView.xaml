@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="foodbg5"
+             xmlns:vm="clr-namespace:FoodTok.ViewModels"
+             x:Class="FoodTok.Views.SignUpView">
+
+    <ContentPage.BindingContext>
+        <vm:SignUpViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Opacity="0.8">
+            <Label Text="Sign Up" TextColor="{AppThemeBinding Dark=black,Light=white}" Margin="10" FontSize="30" FontFamily="cabin"/>
+            <Frame BackgroundColor="{AppThemeBinding Dark=black,Light=white}" CornerRadius="20" Margin="10">
+                <StackLayout>
+                    <Label Text="Create your account today" TextColor="{AppThemeBinding Dark=black,Light=white}" Margin="0,0,0,20" FontSize="20"/>
+                    <Entry Placeholder="Username" x:Name="Username" Text="{Binding Username}" TextColor="{AppThemeBinding Dark=white,Light=black}" 
+                           PlaceholderColor="{AppThemeBinding Dark=white,Light=black}" ClearButtonVisibility="WhileEditing"
+                           FontFamily="cabin" FontSize="30"/>
+                    <Entry Placeholder="Email" x:Name="EmailEntry" Text="{Binding Email}" TextColor="{AppThemeBinding Dark=white,Light=black}" 
+                           PlaceholderColor="{AppThemeBinding Dark=white,Light=black}" ClearButtonVisibility="WhileEditing"
+                           FontFamily="cabin" FontSize="30"/>
+                    <Entry Placeholder="Password" x:Name="PassEntry" Text="{Binding Password}" TextColor="{AppThemeBinding Dark=white,Light=black}" 
+                           PlaceholderColor="{AppThemeBinding Dark=white,Light=black}" IsPassword="True" IsSpellCheckEnabled="False"
+                           IsTextPredictionEnabled="False" ClearButtonVisibility="WhileEditing" FontFamily="cabin" FontSize="30"/>
+                    <Entry Placeholder="Confirm Password" x:Name="ConfirmPassEntry" TextColor="{AppThemeBinding Dark=white,Light=black}" 
+                           PlaceholderColor="{AppThemeBinding Dark=white,Light=black}" Text="{Binding ConfirmPass}" IsPassword="True" IsSpellCheckEnabled="False"
+                           IsTextPredictionEnabled="False" ClearButtonVisibility="WhileEditing" FontFamily="cabin" FontSize="30"/>
+
+                    <Button Text="Submit"  TextColor="{AppThemeBinding Dark=black,Light=white}"
+                            BackgroundColor="LimeGreen" CornerRadius="25" HorizontalOptions="FillAndExpand" Margin="0,20"
+                            Command="{Binding RegisterCommand}" FontFamily="cabin" FontSize="30"/>
+
+                    
+                    
+                    
+                </StackLayout>
+            </Frame>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

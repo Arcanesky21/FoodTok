@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodTok.Views.LoginView"
+             BackgroundImageSource="foodbg5"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="End" Margin="0,0,0,100">
+            <Label Text="Login" FontSize="40" Margin="10,0,0,0" TextColor="{AppThemeBinding Dark=black,Light=white}" FontFamily="cabin"/>
+            <Frame  Margin="10" BackgroundColor="{AppThemeBinding Dark=black,Light=white}" CornerRadius="10" Opacity="0.8">
+                <StackLayout Opacity="1">
+                    <Entry Placeholder="Email" FontSize="30" TextColor="{AppThemeBinding Dark=white,Light=black}" 
+                           PlaceholderColor="{AppThemeBinding Dark=white,Light=black}" IsSpellCheckEnabled="False"
+                            x:Name="emailfield"/>
+                    <Entry Placeholder="Password" TextColor="{AppThemeBinding Dark=white,Light=black}" 
+                           PlaceholderColor="{AppThemeBinding Dark=white,Light=black}" FontSize="30"
+                           IsPassword="True" IsTextPredictionEnabled="False" IsSpellCheckEnabled="False"
+                            x:Name="passfield"/>
+                    <Button Text="Submit"  TextColor="{AppThemeBinding Dark=black,Light=white}"
+                            BackgroundColor="LimeGreen" CornerRadius="25" HorizontalOptions="FillAndExpand" Margin="0,20"
+                            Clicked="SignInUser" FontFamily="cabin" FontSize="30"/>
+
+                    <!--<Button BackgroundColor="Transparent" Text="Dont have an account? Signup" TextTransform="None"
+                            FontSize="20" TextColor="LimeGreen" HorizontalOptions="Start" Clicked="GotoSignUp"/>-->
+
+                    <Label FontFamily="cabin" FontSize="Large">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="GotoSignUp" NumberOfTapsRequired="1"/>
+                        </Label.GestureRecognizers>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Dont have an account?" TextColor="Black"/>
+                                <Span Text=" Signup" TextColor="LimeGreen"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    
+
+                   
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

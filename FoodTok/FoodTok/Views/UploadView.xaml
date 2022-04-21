@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodTok.Views.UploadView"
+             xmlns:local="clr-namespace:FoodTok.ViewModels">
+
+    <ContentPage.BindingContext>
+        <local:UploadPostViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="15">
+            <Label Text="ID" FontSize="Medium" IsEnabled="False"/>
+            <Entry Text="{Binding PostsModel.PostId, Mode=TwoWay}" IsEnabled="False"/>
+            <Label Text="Posts Title"/>
+            <Entry Text="{Binding PostsModel.PostTitle, Mode=TwoWay}" />
+            <Label Text="Username"/>
+            <Entry Text="{Binding PostsModel.Username, Mode=TwoWay}" />
+            <Label Text="Recipe"/>
+            <Entry Text="{Binding PostsModel.Recipe, Mode=TwoWay}" />
+            <Label Text="Image Url"/>
+            <Entry Text="{Binding PostsModel.ImageUrl, Mode=TwoWay}" />
+            <Label Text="Caption"/>
+            <Entry Text="{Binding PostsModel.Caption, Mode=TwoWay}" />
+
+
+            <StackLayout>
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"/>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

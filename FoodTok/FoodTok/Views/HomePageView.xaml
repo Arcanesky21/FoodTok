@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodTok.Views.HomePageView"
+            NavigationPage.HasNavigationBar="False"
+            xmlns:materialfont="clr-namespace:FoodTok.Helpers"
+            xmlns:views="clr-namespace:FoodTok.Views"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="black"
+            SelectedTabColor="LimeGreen"
+            UnselectedTabColor="White">
+
+    <views:FeedView  Title="Home"  IconImageSource="{FontImage FontFamily=materialdesign,
+        Glyph={x:Static materialfont:IconFont.Home},
+        Color=Red}"/>
+    <views:SearchView  Title="Discover" IconImageSource="{FontImage FontFamily=regularmf,
+        Glyph={x:Static materialfont:RegularIconFont.Search},
+        Color=Red}"/>
+    <views:UploadView  Title="Upload" IconImageSource="{FontImage FontFamily=regularmf,
+        Glyph={x:Static materialfont:RegularIconFont.Upload},
+        Color=Red}"/>
+    <views:ProfileView  Title="Profile" IconImageSource="{FontImage FontFamily=regularmf,
+        Glyph={x:Static materialfont:RegularIconFont.Person},
+        Color=Red}"/>
+    <views:SettingsView  Title="Settings" IconImageSource="{FontImage FontFamily=regularmf,
+        Glyph={x:Static materialfont:RegularIconFont.Settings},
+        Color=Red}"/>
+</TabbedPage>

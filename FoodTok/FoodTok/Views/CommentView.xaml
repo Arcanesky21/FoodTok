@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodTok.Views.CommentView"
+             xmlns:materialfont="clr-namespace:FoodTok.Helpers">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <ImageButton HorizontalOptions="Start" VerticalOptions="Start" Source="{FontImage FontFamily=materialdesign,
+                    Glyph={x:Static materialfont:IconFont.Close},
+                                Size=40,Color=Black
+                    }" BackgroundColor="Transparent" Clicked="ClosePage"/>
+            <Label Text="Comments" HorizontalOptions="Center" VerticalOptions="Start" />
+            <Entry Placeholder="Enter Comment" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

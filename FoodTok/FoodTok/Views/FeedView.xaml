@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodTok.Views.FeedView"
+             xmlns:local="clr-namespace:FoodTok.ViewModels"
+             xmlns:model="clr-namespace:FoodTok.Models"
+             xmlns:materialfont="clr-namespace:FoodTok.Helpers">
+
+    
+    <ContentPage.Content>
+        
+            <RefreshView x:DataType="local:FeedViewModel" 
+                         Command="{Binding LoadFeedCommand}"
+                         IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+                <CollectionView ItemsSource="{Binding postsModels}" SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                           SnapPointsType="MandatorySingle"
+                           SnapPointsAlignment="Start" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            
+                            <StackLayout x:DataType="model:PostsModel">
+                            
+                            <Grid ColumnDefinitions="*,*">
+                                
+                                <Image Grid.Column="0" Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="835" Grid.ColumnSpan="2"/>
+                                    <StackLayout VerticalOptions="Center" HorizontalOptions="End"
+                         Spacing="50" Grid.Column="1" Grid.Row="0">
+                                        <ImageButton Source="{FontImage FontFamily=materialdesign,
+                    Glyph={x:Static materialfont:IconFont.HeartOutline},
+                    Size=40}" BackgroundColor="Transparent" />
+                                                    <ImageButton  Source="{FontImage FontFamily=materialdesign,
+                    Glyph={x:Static materialfont:IconFont.CommentTextOutline},
+                                Size=40
+                    }" BackgroundColor="Transparent" Clicked="CommentWindow"/>
+                                                    <ImageButton Source="{FontImage FontFamily=materialdesign,
+                    Glyph={x:Static materialfont:IconFont.ShareOutline},
+                    Color=White,
+                    Size=40}" BackgroundColor="Transparent" Clicked="ShareSomething"/>
+                                    </StackLayout>
+                                    <StackLayout VerticalOptions="End" HorizontalOptions="Start">
+                                        <Label Text="{Binding Username}" FontSize="20" TextColor="White"/>
+                                        <Label Text="{Binding PostTitle}" FontSize="20" TextColor="White"/>
+                                        <Label Text="{Binding Caption}" FontSize="20" TextColor="White"/>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+      
+
+    </ContentPage.Content>
+</ContentPage>

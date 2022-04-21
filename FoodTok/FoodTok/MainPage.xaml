@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodTok.MainPage"
+             BackgroundImageSource="foodbg4"
+             NavigationPage.HasNavigationBar="False"
+             >
+
+    <StackLayout VerticalOptions="EndAndExpand">
+        <Label Text="You are what you eat, so eat right" 
+               TextColor="{AppThemeBinding Dark=black,Light=white}" HorizontalOptions="CenterAndExpand" 
+               HorizontalTextAlignment="Center" FontFamily="cabin" FontSize="40" FontAttributes="Bold"
+               />
+        <Label Text="Or just eat, we'll help you" TextColor="{AppThemeBinding Dark=black,Light=white}" FontSize="20"
+               HorizontalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Italic"
+               Margin="0,10,0,20" FontFamily="cabin"></Label>
+
+        <ImageButton Source="getStarted" HorizontalOptions="Center" Margin="0,0,0,100" Clicked="Get_Started"/>
+
+    </StackLayout>
+
+</ContentPage>

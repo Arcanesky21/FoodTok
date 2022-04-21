@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodTok.Views.SearchView"
+             xmlns:local="clr-namespace:FoodTok.ViewModels"
+             xmlns:model="clr-namespace:FoodTok.Models">
+    <ContentPage.BindingContext>
+        <local:SearchViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="12" Spacing="10">
+            <SearchBar Placeholder="Enter Post Title or Username" x:Name="searchBar" SearchCommand="{Binding PerformSearch}" SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
+
+            <ListView BackgroundColor="Transparent"
+                      ItemSelected="SearchResults_ItemSelectedAsync"
+                      ItemTapped="SearchResults_ItemTapped"
+                      CachingStrategy="RecycleElement"
+                      IsPullToRefreshEnabled="False"
+                      ItemsSource="{Binding SearchResults}" 
+                      x:Name="searchResults" 
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:PostsModel">
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Favourite" Clicked="MenuItem_Clicked"/>
+                            </ViewCell.ContextActions>
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20"
+                                       HasShadow="True">
+                                    <StackLayout Orientation="Horizontal" Spacing="20">
+                                        <Image Source="{Binding ImageUrl}"
+                                               Aspect="AspectFit"
+                                               WidthRequest="100"
+                                               HeightRequest="100"/>
+                                        <StackLayout VerticalOptions="Center">
+                                            <Label Text="{Binding Username}" VerticalOptions="Center"
+                                       FontSize="Large" />
+                                            <Label Text="{Binding PostTitle}" VerticalOptions="Center"
+                                       FontSize="Large" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
